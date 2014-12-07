@@ -1,0 +1,12 @@
+tuto-reproducible-research
+==========================
+
+This directory contains material about reproducible research, used initally
+by Timothée Flutre in 2014 in the lab AGAP (http://umr-agap.cirad.fr/).
+
+The copyright is owned by the Institut National Agronomique (INRA). See the
+COPYING file for usage permissions.
+
+The content of this directory is versioned using git, the central repository
+being hosted on GitHub:
+https://github.com/timflutre/tuto-reproducible-research
