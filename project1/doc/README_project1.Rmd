@@ -1,6 +1,6 @@
 ---
 title: "Project 1"
-author: "Author"
+author: "Firstname Lastname"
 date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
 output:
   html_document:
@@ -39,7 +39,7 @@ This document was generated from a text file in the Rmd format, especially usefu
 For an Rmd file to be successfully exported to HTML and PDF, read [this page](http://rmarkdown.rstudio.com/).
 
 Concretely, open R and type:
-```{r, eval=FALSE}
+```{r ex_rmd, eval=FALSE}
 library(rmarkdown)
 render("myanalysis.Rmd", "all")
 ```
@@ -68,7 +68,7 @@ hist(rnorm(10^4), breaks="FD")
 ```
 
 Example of a table from R:
-```{r, results='asis'}
+```{r show_table, results='asis'}
 knitr::kable(mtcars[1:5,])
 ```
 
@@ -81,21 +81,22 @@ This project is part of a presentation which teaches the fundamentals of reprodu
 The project directory is organized as advised by [Noble (PLoS Computational Biology, 2009)](http://dx.doi.org/10.1371/journal.pcbi.1000424).
 
 On any Unix-like system, it is easily done with the following commands:
-```{r, eval=FALSE}
+```{r create_proj, eval=FALSE}
 touch AUTHORS COPYING README; mkdir -p doc data code results
 ```
 
 On any Unix-like system, it can also be easily compressed and transferred:
-```{r, eval=FALSE}
+```{r archive_proj, eval=FALSE}
 cd ..; tar -czvf project1.tar.gz \
 --exclude="*~" --exclude=".*" project1
 ```
 
 Importantly, before anything else, one must specify all paths relatively to the root of the project:
 ```{r project_organization}
-if(Sys.info()["user"] == "other"){
-  ## work.dir <- "~/Documents/project1"
-  work.dir <- "C:/Documents/travail/project1"
+if(Sys.info()["user"] == "tflutre"){
+  work.dir <- "~/src/tuto-reproducible-research/project1"
+} else if(Sys.info()["user"] == "<your_collaborator>"){
+  work.dir <- "C:/Documents/tuto-reproducible-research/project1"
 }
 stopifnot(file.exists(work.dir))
 data.dir <- paste0(work.dir, "/data")
@@ -129,6 +130,8 @@ stopifnot(file.exists(code.dir))
 
 ...
 
+
+# Appendix
 
 ```{r info}
 print(sessionInfo(), locale=FALSE)

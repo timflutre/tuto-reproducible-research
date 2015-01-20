@@ -1,11 +1,12 @@
-#+title: Project 1
-#+author: Author
+#+title: Project 2
+#+author: Firstname Lastname, etc
 
-# see https://github.com/timflutre/perso/blob/master/emacs
 #+latex_header: \setlength{\parindent}{0pt}
 #+latex_header: \textwidth 16cm
 #+latex_header: \oddsidemargin 0.5cm
 #+latex_header: \evensidemargin 0.5cm
+#+latex_header: \usepackage{parskip}
+#+latex_header: \graphicspath{{./images/}}
 
 * Preamble
 
@@ -79,3 +80,6 @@ wget ftp://ftp.ensemblgenomes.org/pub/plants/release-24/fasta/vitis_vinifera/dna
 #+begin_src sh
 cd results/
 #+end_src
+
+** Task "do this and that"
+See the script =src/project2.R=.
