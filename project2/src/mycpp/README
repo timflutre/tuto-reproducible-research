@@ -1,0 +1,66 @@
+mycpp - My C++ package
+======================
+
+This is mycpp, my template package in C++ following GNU guidelines.
+
+mycpp is free software, you can redistribute it and/or modify it under
+the terms of the GNU General Public License.
+
+The GNU General Public License does not permit this software to be
+redistributed in proprietary programs.
+
+This package is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Availability
+============
+
+The current stable version of mycpp is always available from GitHub
+in the repository https://github.com/timflutre/tuto-reproducible-research,
+in the directory project2/src.
+
+Installation
+============
+
+mycpp follows the standard GNU installation procedure.  Please consult
+the INSTALL file in this distribution for more detailed instructions.
+
+For information about specific platforms and compilers see the
+"Compilation Notes" section in the INSTALL file.
+
+More information about mycpp
+============================
+
+The project homepage is https://github.com/timflutre/tuto-reproducible-research.
+
+See the NEWS file for recent changes.
+
+Reporting Bugs
+==============
+
+A list of known bugs can be found in the BUGS file.  Details of
+compilation problems can be found in the INSTALL file.
+
+If you find a bug which is not listed in these files please report it
+to https://github.com/timflutre/tuto-reproducible-research/issues.
+
+All bug reports should include:
+
+       The version number of mycpp, and where you obtained it
+       The hardware and operating system
+       The compiler used, including version number and compilation options
+       A description of the bug behaviour
+       A short program which reproducibly exercises the bug
+
+It is useful if you can check whether the same problem occurs when the
+library is compiled without optimization.  Thank you.
+
+Any errors or omissions in the manual can also be reported to the
+same address.
+
+Contributing to mycpp
+=====================
+
+If you are interested in participating in mycpp development, please see
+the webpage at https://github.com/timflutre/tuto-reproducible-research.
