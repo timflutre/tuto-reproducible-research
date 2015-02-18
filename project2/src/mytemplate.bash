@@ -120,7 +120,7 @@ parseCmdLine "$@"
 
 if [ $verbose -gt "0" ]; then
     startTime=$(timer)
-    msg="START ${0##*/} $(date +"%Y-%m-%d") $(date +"%H:%M:%S")"
+    msg="START ${0##*/} ${progVersion} $(date +"%Y-%m-%d") $(date +"%H:%M:%S")"
     msg+="\ncmd-line: $0 "$@ # comment if an option takes a glob as argument
     msg+="\ncwd: $(pwd)"
     echo -e $msg
@@ -129,7 +129,7 @@ fi
 run inFile verbose
 
 if [ $verbose -gt "0" ]; then
-    msg="END ${0##*/} $(date +"%Y-%m-%d") $(date +"%H:%M:%S")"
+    msg="END ${0##*/} ${progVersion} $(date +"%Y-%m-%d") $(date +"%H:%M:%S")"
     msg+=" ($(timer startTime))"
     echo $msg
 fi

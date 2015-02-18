@@ -133,7 +133,8 @@ main <- function(){
 
   if(params$verbose > 0){
     start.time <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
-    message(paste0("START ", prog.name, " ", start.time))
+    message(paste0("START ", prog.name, " ", prog.version, " ", start.time))
+    ## message(paste0("cmd-line: "))
     message(paste0("cwd: ", getwd()))
   }
 
@@ -152,7 +153,8 @@ main <- function(){
     difft.s <- floor(((difft - difft.d - difft.h/24 - difft.m/(24*60)) *
                       24*60*60) %% (24 * 60 * 60))
     run.length <- sprintf("%02i:%02i:%02i", difft.h, difft.m, difft.s)
-    message(paste0("END ", prog.name, " ", end.time, " (", run.length, ")"))
+    message(paste0("END ", prog.name, " ", prog.version, " ", end.time,
+                   " (", run.length, ")"))
     ## print(object.size(x=lapply(ls(), get)), units="Kb") # return an error I don't understand
   }
 }
