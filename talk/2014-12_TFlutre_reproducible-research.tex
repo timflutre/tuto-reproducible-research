@@ -1,6 +1,6 @@
-% Copyright (C) 2014 Institut National de la Recherche Agronomique (INRA)
+% Copyright (C) 2014-2015 Institut National de la Recherche Agronomique (INRA)
 % License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
-% Author: Timothée Flutre
+% Person: Timothée Flutre [cre,aut]
 
 \documentclass[c]{beamer} % use [t] to top-justified body text by default
 % \documentclass[c,handout]{beamer}
@@ -68,6 +68,10 @@
   
   \tiny
   \begin{center}
+    Last updated: 21/02/2015
+    
+    \medskip
+    
     License: \href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}
   \end{center}
 \end{frame}                                                                                                                       
@@ -275,47 +279,19 @@
   \item \alert{data}: few small files or many large files; custom or standardized formats; databases
     \medskip
     \pause
-  \item \alert{code}: scripts in an interpreted language (e.g. R, Python) or programs in a compiled language (e.g. C++)
+  \item \alert{code}: in interpreted languages (e.g. R, Python, Perl, Bash) or compiled languages (e.g. C, C++, Fortran)
     \medskip
     \pause
-  \item \alert{model}: informal (a word processor is enough) or formal (many equations)
+  \item \alert{model}: informal (any word processor is enough) or formal (many equations, much easier in LaTeX)
     \medskip
     \pause
-  \item \alert{collaborators}: professional scientist or anyone else; beginner or experienced; open curious or fully proficient
+  \item \alert{collaborators}: professional scientist or anyone else; beginner or experienced; "open curious" or already fully proficient
   \end{itemize}
 \end{frame}
 
-% \begin{frame}
-%   \frametitle{Personal philosophy}
-%   Ever since my PhD, I want others, whether scientists or citizens, to use \emph{and} understand what I do, hopefully even benefit from it, \emph{but} most importantly build on it.
-  
-%   \bigskip
-%   \pause
-  
-%   \tiny
-  
-%   A few consequences, among others:
-%   \begin{itemize}
-%   \item choice of free softwares (or at least open source)
-%   \item choice of a copyleft license for my own code
-%   \item choice of writing code in test-driven development
-%   \item choice of (promoting) the release of data in databases
-%   \item choice of conditioning my inferences on observed data
-%   \item choice of writing explanations in text format and sharing them in PDF
-%   \item choice of "open curious" collaborators
-%   \end{itemize}
-  
-%   \normalsize
-  
-%   \bigskip
-%   \pause
-  
-%   You, too, have a philosophy: which one is it? what are the consequences?
-% \end{frame}
-
 \begin{frame}
   \frametitle{Initial steps toward reproducible research}
-  Broman's tutorial: \url{http://kbroman.org/steps2rr/}
+  Karl Broman's tutorial: \url{http://kbroman.org/steps2rr/}
   
   \bigskip
   
@@ -349,17 +325,17 @@
   \begin{itemize}
   \item essential tool of any data analysis, e.g. scripts
   \item light-weight markup languages convert plain text to PDF/HTML/odt/docx/etc, check out \href{http://johnmacfarlane.net/pandoc/}{pandoc}
-  \item delivers full power of \href{http://www.ibm.com/developerworks/aix/library/au-unixtext/index.html}{text manipulation tools} on Unix-like systems, e.g. \verb+diff+ to compare files
-  \item allows efficient use of version control systems such as \verb+git+
+  \item delivers full power of \href{http://www.ibm.com/developerworks/aix/library/au-unixtext/index.html}{text manipulation tools}, e.g. \verb+diff+ to compare, \verb+grep+ to search, \verb+awk+ to extract, ...
+  \item allows efficient use of version control systems such as \href{http://www.git-scm.com/}{git}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Project organization}
-  Follow the spirit of Noble (PLoS Comput Biol, 2009):
+  Follow the spirit of Noble (\href{http://dx.doi.org/10.1371/journal.pcbi.1000424}{PLoS Comput Biol, 2009}):
   \begin{itemize}
-  \item someone unfamiliar with your project should be able to look at your computer files and understand in detail what you did and why
-  \item everything you do, you will probably have to do it over again
+  \item someone unfamiliar with your project should be able to look at your computer files and understand in detail what you did and why;
+  \item everything you do, you will probably have to do it over again.
   \end{itemize}
   
   \bigskip
@@ -370,7 +346,7 @@
   \item give brief explanations in a text file named README
   \item describe sharing/modifying rights in a text file named COPYING
   \item list authors in a text file named AUTHORS
-  \item create subdirectories \verb+doc/+, \verb+data/+, \verb+code/+ and \verb+results/+
+  \item create subdirectories \verb+doc/+, \verb+data/+, \verb+src/+ and \verb+results/+
   \end{enumerate}
 \end{frame}
 
@@ -389,35 +365,35 @@
   My advice: use \alert{git} (free software; multi-platform; used all over the globe by programmers, scientists, journalists, etc)
   \begin{itemize}
   \item download it from \url{http://git-scm.com/}
-  \item read (at least) chapters 1 to 3 of the \href{http://git-scm.com/book/en/v2}{book}
+  \item \emph{read} chapters 1 to 3 of the official \href{http://git-scm.com/book/en/v2}{book}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Two examples}
   \begin{enumerate}
-  \item project 1: a few small data files; laptop; classical models; available implementations for interpreted languages
+  \item \alert{project "ligth"}: a few small data files; laptop; classical models; available implementations for interpreted languages
     \begin{itemize}
     \item ok to re-run the whole analysis from time to time
-    \item implement analysis in text file in Rmd format and use RStudio
+    \item write notebook in text file in \href{http://cran.r-project.org/web/packages/rmarkdown/index.html}{Rmd} format and use \href{http://www.rstudio.com/products/rstudio/download/}{RStudio}
     \end{itemize}
     \bigskip
     \pause
-  \item project 2: many large files, e.g. sequencing data; cluster; possibly new models and implementations
+  \item \alert{project "heavy"}: many large files, e.g. sequencing data; cluster; possibly new models and implementations
     \begin{itemize}
     \item can't re-run the whole analysis because of intensive computations
-    \item write notebook in the org format and use pandoc
+    \item write notebook in text file in \href{http://orgmode.org/}{org} format and use \href{https://www.gnu.org/software/emacs/}{Emacs} or \href{http://johnmacfarlane.net/pandoc/}{pandoc}
     \end{itemize}
   \end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Project 1}
+  \frametitle{Project "light"}
   \begin{enumerate}
-  \item create your project directory: \verb+README+, \verb+COPYING+, \verb+AUTHORS+, \verb+doc/+, \verb+data/+, \verb+code/+, \verb+results/+
-  \item install RStudio \url{http://www.rstudio.com/}
-  \item visit \href{https://github.com/timflutre/tuto-reproducible-research}{github.com/timflutre/tuto-reproducible-research} and download the Rmd file in \verb+project1/+
-  \item convert it from Rmd to PDF/HTML in RStudio
+  \item create your project directory: \verb+README+, \verb+COPYING+, \verb+AUTHORS+, \verb+doc/+, \verb+data/+, \verb+src/+, \verb+results/+
+  \item (re-)install the latest version of RStudio: \url{http://www.rstudio.com/}
+  \item visit \href{https://github.com/timflutre/tuto-reproducible-research}{github.com/timflutre/tuto-reproducible-research} and download the Rmd file in \verb+project_light/+
+  \item convert it from Rmd to HTML in RStudio by clicking on \verb+Knit to HTML+
   \end{enumerate}
   \bigskip
   \pause
@@ -429,7 +405,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Project 2}
+  \frametitle{Project "heavy"}
   Usually, if large data, then computer cluster, and "shared space":
   \begin{itemize}
   \item \verb+external_public/+, \verb+external_private/+, \verb+internal/+
@@ -439,9 +415,9 @@
   \pause
   
   \begin{enumerate}
-  \item create the backbone for project2 in your home
+  \item create the backbone for \verb+project_heavy+ in your home
   \item version it with git, and push it to the server
-  \item clone the repository for project2 in the shared space
+  \item clone the repository for \verb+project_heavy+ in the shared space
   \item put the large data files \verb+data/+ in the shared space, but don't version them
   \item edit (\verb+commit+) versioned files in your home
   \item run intensive computations in the shared space (coordinate with other users!)
