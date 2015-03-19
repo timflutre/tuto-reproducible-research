@@ -5,6 +5,8 @@
 \documentclass[c]{beamer} % use [t] to top-justified body text by default
 % \documentclass[c,handout]{beamer}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\definecolor{gray}{gray}{0.35}
 \usepackage{hyperref}
 \hypersetup{colorlinks, linkcolor=black, urlcolor=gray}
 \usepackage{amsmath}
@@ -84,6 +86,9 @@
   
   In this presentation, I will rapidly outline the current state of affairs about reproducibility in research and what it says for code and data. I will then present in some details the computational tools I am using, after years of trials and errors and inspirations from many people. In the end, everyone is welcome to bring his computer to try by himself on a minimal case study (many cables will be available for internet connection).
   
+  \bigskip
+  
+  In these slides, terms in \textcolor{gray}{grey} correspond to HTML links: click on them ;)
 \end{frame}
 
 \begin{frame}
@@ -94,7 +99,7 @@
 \section{Global context}
 
 \begin{frame}
-  \frametitle{Statistical Inference: the Big Picture (Kass, 2011)}
+  \frametitle{Statistical Inference: the Big Picture (\href{http://dx.doi.org/10.1214/10-sts337}{Kass, 2011})}
   \only<1>{
     \begin{center}
       \includegraphics[width=0.8\textwidth,height=0.80\textheight,keepaspectratio=true]{kass_11_statistical-inference_fig1}%
@@ -121,7 +126,7 @@
   \end{center}
   \pause
   \begin{itemize}
-  \item Did you hear about it?
+  \item Did you hear about \href{http://dx.doi.org/10.1371/journal.pmed.0020124}{this paper}?
   \end{itemize}
   \bigskip
   \pause
@@ -154,6 +159,8 @@
   \begin{center}
     \includegraphics[width=0.95\textwidth,height=0.90\textheight,keepaspectratio=true]{2014-10_JIoannidis_title}%
   \end{center}
+
+  Read it \href{http://dx.doi.org/10.1371/journal.pmed.1001747}{here}!
   
   \bigskip
   
@@ -163,7 +170,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Reprod. Research in Computational Science (Peng, 2011)}
+  \frametitle{Reprod. Research in Computational Science (\href{http://dx.doi.org/10.1126/science.1213847}{Peng, 2011})}
   \begin{center}
     \includegraphics[width=0.95\textwidth,height=0.90\textheight,keepaspectratio=true]{peng_11_reproducible-research_fig1}%
   \end{center}
@@ -209,7 +216,7 @@
   \bigskip
   \pause
   
-  Zamir (Science, 2014):
+  Zamir (\href{http://dx.doi.org/10.1126/science.1258941}{Science, 2014}):
   \begin{center}
     \includegraphics[width=0.95\textwidth,height=0.90\textheight,keepaspectratio=true]{2014-09_DZamir_text}%
   \end{center}
@@ -228,13 +235,13 @@
   \bigskip
   \pause
   
-  Prod'INRA: automatic export of productions for individual assessment, including softwares, databases, biological material, etc
+  \href{http://prodinra.inra.fr/?locale=en}{Prod'INRA}: automatic export of productions for individual assessment, including softwares, databases, biological material, etc
 \end{frame}
 
 \begin{frame}
   \frametitle{But that's not it!}
   \small
-  Blocker \& Meng (Bernoulli, 2013)
+  Blocker \& Meng (\href{http://dx.doi.org/10.3150/13-bejsp16}{Bernoulli, 2013}):
   \begin{quote}
     Decisions made in preprocessing constrain all later analyses and are typically irreversible. Hence, data analysis becomes a collaborative endeavor by all parties involved in data collection, preprocessing and curation, and downstream inference.
   \end{quote}
@@ -282,7 +289,7 @@
   \item \alert{code}: in interpreted languages (e.g. R, Python, Perl, Bash) or compiled languages (e.g. C, C++, Fortran)
     \medskip
     \pause
-  \item \alert{model}: informal (any word processor is enough) or formal (many equations, much easier in LaTeX)
+  \item \alert{model}: informal (any word processor is enough, e.g. Writer, Word) or formal (many equations, much easier in LaTeX)
     \medskip
     \pause
   \item \alert{collaborators}: professional scientist or anyone else; beginner or experienced; "open curious" or already fully proficient
@@ -314,8 +321,8 @@
 \begin{frame}[fragile]
   \frametitle{A text editor, not a word processor}
   \begin{itemize}
-  \item word processors: Microsoft Word, LibreOffice Writer, etc
-  \item text editors: Notepad, Notepad++, Geany, Emacs, vim, etc
+  \item word processors: \href{https://www.libreoffice.org/discover/writer/}{LibreOffice Writer}, Microsoft Word, etc
+  \item text editors: \href{https://www.gnu.org/software/emacs/}{Emacs}, Vim, Notepad++, Gedit, Geany, etc
   \end{itemize}
   
   \bigskip
@@ -344,7 +351,7 @@
   \begin{enumerate}
   \item choose a short project name and create a directory
   \item give brief explanations in a text file named README
-  \item describe sharing/modifying rights in a text file named COPYING
+  \item describe sharing/modifying rights in a text file named COPYING or LICENSE
   \item list authors in a text file named AUTHORS
   \item create subdirectories \verb+doc/+, \verb+data/+, \verb+src/+ and \verb+results/+
   \end{enumerate}
@@ -419,7 +426,7 @@
   \item version it with git, and push it to the server
   \item clone the repository for \verb+project_heavy+ in the shared space
   \item put the large data files \verb+data/+ in the shared space, but don't version them
-  \item edit (\verb+commit+) versioned files in your home
+  \item edit versioned files in your home, and commit/push
   \item run intensive computations in the shared space (coordinate with other users!)
   \item update (\verb+pull+) repository on the shared space (need one \verb+origin-<user>+ per user)
   \end{enumerate}
@@ -427,7 +434,7 @@
 
 \begin{frame}
   \frametitle{Are you teaching?}
-  Example in \alert{statistics} from Matthew Stephens: class notes versioned with git and hosted on GitHub
+  Example in \alert{statistics} from Matthew Stephens: class notes versioned with git and hosted \href{https://github.com/stephens999/stat302}{on GitHub}
   
   \bigskip
   
@@ -438,7 +445,7 @@
 
 \begin{frame}
   \frametitle{Are you teaching? Cont'd}
-  Example in \alert{population genetics} from Graham Coop: class notes versioned with git and hosted on GitHub
+  Example in \alert{population genetics} from Graham Coop: class notes versioned with git and hosted \href{https://github.com/cooplab/popgen-notes}{on GitHub}
   
   \bigskip
   
@@ -449,7 +456,7 @@
 
 \begin{frame}
   \frametitle{Are you writing a book?}
-  Example in \alert{mathematics} from the "Homotopy Type Theory" group which started at Princeton (IAS) and now writes a book versioned with git and hosted on GitHub
+  Example in \alert{mathematics} from the "Homotopy Type Theory" group which started at Princeton (IAS) and now writes a book versioned with git and hosted \href{https://github.com/HoTT/book}{on GitHub}
   
   \bigskip
   
