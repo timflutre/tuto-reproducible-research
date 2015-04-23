@@ -34,7 +34,7 @@ help <- function(){
   txt <- paste0(txt, "  ", prog.name, " -i <input>\n")
   txt <- paste0(txt, "\n")
   txt <- paste0(txt, "Report bugs to <...@...>.")
-  message(txt)
+  write(txt, stdout())
 }
 
 ##' Display version and license information on stdout
@@ -48,7 +48,7 @@ version <- function(){
   txt <- paste0(txt, "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n")
   txt <- paste0(txt, "\n")
   txt <- paste0(txt, "Written by Timothée Flutre [cre,aut].")
-  message(txt)
+  write(txt, stdout())
 }
 
 ##' Parse the command-line arguments
@@ -122,9 +122,11 @@ main <- function(){
 
   if(params$verbose > 0){
     start.time <- format(Sys.time(), "%Y-%m-%d %H:%M:%S")
-    message(paste0("START ", prog.name, " ", prog.version, " ", start.time))
-    ## message(paste0("cmd-line: "))
-    message(paste0("cwd: ", getwd()))
+    write(paste0("START ", prog.name, " ", prog.version, " ", start.time),
+          stdout())
+    args <- commandArgs(trailingOnly=TRUE)
+    write(paste("cmd-line:", prog.name, paste(args, collapse=" ")), stdout())
+    write(paste0("cwd: ", getwd()), stdout())
   }
 
   system.time(run(params))
@@ -142,8 +144,8 @@ main <- function(){
     difft.s <- floor(((difft - difft.d - difft.h/24 - difft.m/(24*60)) *
                       24*60*60) %% (24 * 60 * 60))
     run.length <- sprintf("%02i:%02i:%02i", difft.h, difft.m, difft.s)
-    message(paste0("END ", prog.name, " ", prog.version, " ", end.time,
-                   " (", run.length, ")"))
+    write(paste0("END ", prog.name, " ", prog.version, " ", end.time,
+                 " (", run.length, ")"), stdout())
     ## print(object.size(x=lapply(ls(), get)), units="Kb") # return an error I don't understand
   }
 }
