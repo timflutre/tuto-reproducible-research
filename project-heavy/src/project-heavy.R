@@ -3,15 +3,19 @@
 ## Persons: Firstname Lastname [contributions], etc
 ## License: none (code not shared for the moment)
 
+## the following commands check that all required directories exist:
 rm(list=ls())
 project.name <- "project-heavy"
 project.dir <- ""
+tmp.proj.dir <- NULL
 if(Sys.info()["user"] == "tflutre" || Sys.info()["user"] == "flutre"){
   project.dir <- paste0("~/src/tuto-reproducible-research/", project.name)
 } else if(Sys.info()["user"] == "<your_collaborator"){
   project.dir <- paste0("~/Documents/", project.name)
 }
 stopifnot(file.exists(project.dir))
+if(! is.null(tmp.proj.dir))
+  stopifnot(file.exists(tmp.proj.dir))
 data.dir <- paste0(project.dir, "/data")
 stopifnot(file.exists(data.dir))
 results.dir <- paste0(project.dir, "/results")
@@ -26,14 +30,14 @@ commons.dir <- paste0("<path_to_shared_space_on_cluster>", project.name)
 stopifnot(file.exists(commons.dir))
 
 ## ----------------------------------------------------------------------------
-## task: do this and that
+## task: do this
 
 task.dir <- paste0(results.dir, "/<task_id>")
 
 ## ...
 
 ## ----------------------------------------------------------------------------
-## task: do this and that
+## task: do that
 
 task.dir <- paste0(results.dir, "/<task_id>")
 
