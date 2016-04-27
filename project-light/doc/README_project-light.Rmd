@@ -2,6 +2,7 @@
 title: "Project \"light\""
 author: "authors (individual or team names)"
 date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+colorlinks: true
 output:
   html_document:
     toc: true
@@ -25,15 +26,12 @@ if(R.v.maj < 2 || (R.v.maj == 2 && R.v.min.1 < 15))
 
 suppressPackageStartupMessages(library(knitr))
 opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE)#, fig.width=12, fig.height=8, fig.path=figures/")
-
-options(digits=3)
-seed <- 1859; set.seed(seed)
 ```
 
 
 # Preamble
 
-This document was generated from a text file in the Rmd format, especially useful with the free software [R](http://www.r-project.org/).
+This document was generated from a text file in the Rmd format, especially useful with the free software [R](http://www.r-project.org/) (use a recent-enough version).
 
 For an Rmd file to be successfully exported to HTML and PDF, read [this page](http://rmarkdown.rstudio.com/).
 
@@ -61,8 +59,9 @@ Example of an ordered list:
 
 Example of **bold** and *italics*.
 
-Example of a plot from R:
+Example of a plot from R (setting the seed for reproducibility):
 ```{r plot_hist}
+set.seed(1859)
 hist(rnorm(10^4), breaks="FD")
 ```
 
