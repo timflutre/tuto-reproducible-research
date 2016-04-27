@@ -6,6 +6,7 @@ output:
   html_document:
     toc: true
     toc_depth: 3
+    toc_float: true
     number_sections: TRUE
   pdf_document:
     toc: true
@@ -73,7 +74,7 @@ knitr::kable(mtcars[1:5,])
 
 # Overview
 
-This document is part of project "light".
+This document is part of [project "light"](https://github.com/timflutre/tuto-reproducible-research).
 This project is part of a presentation which teaches the fundamentals of reproducible research.
 
 The project directory is organized as advised by Noble [(PLoS Computational Biology, 2009)](http://dx.doi.org/10.1371/journal.pcbi.1000424).
