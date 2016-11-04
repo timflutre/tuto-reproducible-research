@@ -1,7 +1,7 @@
 ---
 title: "Project \"light\""
 author: "authors (individual or team names)"
-date: '`r as.character(format(Sys.Date(), format="%d/%m/%Y"))`'
+date: "`r format(Sys.time(), '%d/%m/%Y %H:%M:%S')`"
 colorlinks: true
 output:
   html_document:
@@ -16,7 +16,7 @@ output:
 ---
 
 <!--
-This R chunk is used to set up important options and load required packages.
+This R chunk is used to set up some options.
 -->
 ```{r setup, include=FALSE}
 R.v.maj <- as.numeric(R.version$major)
@@ -25,7 +25,7 @@ if(R.v.maj < 2 || (R.v.maj == 2 && R.v.min.1 < 15))
   stop("requires R >= 2.15", call.=FALSE)
 
 suppressPackageStartupMessages(library(knitr))
-opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE, fig.align="center")#, fig.width=12, fig.height=8, fig.path=figures/")
+opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE, fig.align="center")
 ```
 
 
@@ -96,7 +96,7 @@ This project involves the following persons:
 * ...
 
 Importantly, before anything else, one must specify all paths relatively to the root of the project:
-```{r project_organization}
+```{r project_organization, eval=FALSE}
 project.name <- "project-light"
 project.dir <- ""
 if(Sys.info()["user"] == "tflutre"){
@@ -115,6 +115,11 @@ stopifnot(file.exists(src.dir))
 This document will also require external packages to be available, for instance:
 ```{r load_pkg}
 ## suppressPackageStartupMessages(library(MASS))
+```
+
+This R chunk is used to assess how much time it takes to execute the R code in this document until the end:
+```{r time_0}
+t0 <- proc.time()
 ```
 
 
@@ -146,5 +151,6 @@ This document will also require external packages to be available, for instance:
 # Appendix
 
 ```{r info}
+t1 <- proc.time(); t1 - t0
 print(sessionInfo(), locale=FALSE)
 ```
