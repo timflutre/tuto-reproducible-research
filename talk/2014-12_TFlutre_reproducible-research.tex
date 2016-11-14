@@ -70,7 +70,7 @@
   
   \tiny
   \begin{center}
-    Last updated: 10/08/2016
+    Last updated: 14/11/2016
     
     \medskip
     
@@ -397,6 +397,24 @@
   \item download it from \url{http://git-scm.com/}
   \item \emph{read} chapters 1 to 3 of the official \href{http://git-scm.com/book/en/v2}{book}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gather all your R code into a package}
+  Research funding being more and more project-based, it is frequent to need the same kind of analysis in different projects.
+  But don't copy-paste your code, gather it into an R package instead!
+  
+  \bigskip
+  
+  \begin{itemize}
+  \item use \texttt{package.skeleton()}
+  \item or use the \href{https://cran.r-project.org/package=pkgKitten}{kitten} package
+  \item or read H. Wickham's great book (freely available \href{http://r-pkgs.had.co.nz/}{online})
+  \end{itemize}
+  
+  \bigskip
+  
+  Then, version it with git, host it on GitHub, and use the R package \href{https://cran.r-project.org/package=devtools}{devtools} to install it easily on any computer.
 \end{frame}
 
 \begin{frame}[fragile]
