@@ -13,6 +13,7 @@ output:
     toc: true
     toc_depth: 3
     number_sections: TRUE
+urlcolor: blue
 ---
 
 <!--
