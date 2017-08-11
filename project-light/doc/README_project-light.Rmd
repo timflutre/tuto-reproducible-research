@@ -27,6 +27,7 @@ if(R.v.maj < 2 || (R.v.maj == 2 && R.v.min.1 < 15))
 
 suppressPackageStartupMessages(library(knitr))
 opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE, fig.align="center")
+opts_knit$set(progress=TRUE, verbose=TRUE)
 ```
 
 
