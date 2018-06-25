@@ -2,6 +2,7 @@
 title: "Project \"light\""
 author: "authors (individual or team names)"
 date: "`r format(Sys.time(), '%d/%m/%Y %H:%M:%S')`"
+lang: "en"
 colorlinks: true
 output:
   html_document:
@@ -14,12 +15,16 @@ output:
     toc_depth: 3
     number_sections: TRUE
 urlcolor: blue
+abstract: |
+    This document is part of [project "light"](https://github.com/timflutre/tuto-reproducible-research). This project is part of a presentation which teaches the fundamentals of reproducible research, using the free software [R](http://www.r-project.org/).
 ---
 
 <!--
 This R chunk is used to set up some options.
 -->
 ```{r setup, include=FALSE}
+##`
+## https://github.com/vspinu/polymode/issues/147#issuecomment-399745611
 R.v.maj <- as.numeric(R.version$major)
 R.v.min.1 <- as.numeric(strsplit(R.version$minor, "\\.")[[1]][1])
 if(R.v.maj < 2 || (R.v.maj == 2 && R.v.min.1 < 15))
