@@ -10,6 +10,7 @@ output:
     toc_depth: 3
     toc_float: true
     number_sections: TRUE
+    code_folding: show
   pdf_document:
     toc: true
     toc_depth: 3
@@ -23,15 +24,16 @@ abstract: |
 This R chunk is used to set up some options.
 -->
 ```{r setup, include=FALSE}
-##`
-## https://github.com/vspinu/polymode/issues/147#issuecomment-399745611
 R.v.maj <- as.numeric(R.version$major)
 R.v.min.1 <- as.numeric(strsplit(R.version$minor, "\\.")[[1]][1])
 if(R.v.maj < 2 || (R.v.maj == 2 && R.v.min.1 < 15))
   stop("requires R >= 2.15", call.=FALSE)
 
 suppressPackageStartupMessages(library(knitr))
-opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE, fig.align="center")
+if(! "params" %in% ls())
+  params <- list(root.dir=NULL)
+opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE,
+               fig.align="center", root.dir=params$root.dir)
 opts_knit$set(progress=TRUE, verbose=TRUE)
 ```
 
