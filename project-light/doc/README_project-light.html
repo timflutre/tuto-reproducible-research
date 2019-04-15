@@ -311,7 +311,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Project “light”</h1>
 <h4 class="author"><em>authors (individual or team names)</em></h4>
-<h4 class="date"><em>15/04/2019 09:05:09</em></h4>
+<h4 class="date"><em>15/04/2019 16:21:29</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>This document is part of <a href="https://github.com/timflutre/tuto-reproducible-research">project “light”</a>. This project is part of a presentation which teaches the fundamentals of reproducible research, using the free software <a href="http://www.r-project.org/">R</a>.</p>
@@ -475,29 +475,36 @@ stopifnot(file.exists(src.dir))
 </div>
 <div id="load-or-simulate-some-data" class="section level1">
 <h1><span class="header-section-number">3</span> Load (or simulate) some data</h1>
-<p>…</p>
+<p>Before loading a file, it is useful to check that its content didn’t change using the MD5 digest algorithm:</p>
+<pre class="r"><code>dat.file &lt;- &quot;/path/to/data.tsv&quot;
+stopifnot(tools::md5sum(dat.file) == &quot;baaf3c3eb892c5e4c42327eee462b35e&quot;) # fake example
+dat &lt;- read.table(dat.file, header=TRUE, sep=&quot;\t&quot;)</code></pre>
 </div>
 <div id="explore-the-data" class="section level1">
 <h1><span class="header-section-number">4</span> Explore the data</h1>
+<p>Use <code>plot()</code>, <code>hist()</code>, <code>boxplot()</code> (better, <code>beanplot()</code>), <code>barplot</code>, etc.</p>
 <p>…</p>
 </div>
 <div id="write-the-model" class="section level1">
 <h1><span class="header-section-number">5</span> Write the model</h1>
+<p>Use <a href="https://en.wikibooks.org/wiki/LaTeX">LaTeX</a> syntax.</p>
 <p>…</p>
 </div>
 <div id="perform-inference" class="section level1">
 <h1><span class="header-section-number">6</span> Perform inference</h1>
+<p>Use <code>lm()</code>, <code>lme4::lmer()</code>, etc.</p>
 <p>…</p>
 </div>
 <div id="check-assumptions-and-improve-the-model" class="section level1">
 <h1><span class="header-section-number">7</span> Check assumptions and improve the model</h1>
+<p>Look at residuals, etc.</p>
 <p>…</p>
 </div>
 <div id="appendix" class="section level1">
 <h1><span class="header-section-number">8</span> Appendix</h1>
 <pre class="r"><code>t1 &lt;- proc.time(); t1 - t0</code></pre>
 <pre><code>##    user  system elapsed 
-##   0.008   0.000   0.009</code></pre>
+##   0.019   0.000   0.018</code></pre>
 <pre class="r"><code>print(sessionInfo(), locale=FALSE)</code></pre>
 <pre><code>## R version 3.5.3 (2019-03-11)
 ## Platform: x86_64-pc-linux-gnu (64-bit)

@@ -134,25 +134,38 @@ t0 <- proc.time()
 
 # Load (or simulate) some data
 
-...
+Before loading a file, it is useful to check that its content didn't change using the MD5 digest algorithm:
+```{r, eval=FALSE}
+dat.file <- "/path/to/data.tsv"
+stopifnot(tools::md5sum(dat.file) == "baaf3c3eb892c5e4c42327eee462b35e") # fake example
+dat <- read.table(dat.file, header=TRUE, sep="\t")
+```
 
 
 # Explore the data
+
+Use `plot()`, `hist()`, `boxplot()` (better, `beanplot()`), `barplot`, etc.
 
 ...
 
 
 # Write the model
 
+Use [LaTeX](https://en.wikibooks.org/wiki/LaTeX) syntax.
+
 ...
 
 
 # Perform inference
 
+Use `lm()`, `lme4::lmer()`, etc.
+
 ...
 
 
 # Check assumptions and improve the model
+
+Look at residuals, etc.
 
 ...
 
