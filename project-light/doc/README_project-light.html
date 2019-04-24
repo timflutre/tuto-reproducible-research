@@ -311,7 +311,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Project “light”</h1>
 <h4 class="author"><em>authors (individual or team names)</em></h4>
-<h4 class="date"><em>15/04/2019 16:21:29</em></h4>
+<h4 class="date"><em>24/04/2019 16:33:42</em></h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
 <p>This document is part of <a href="https://github.com/timflutre/tuto-reproducible-research">project “light”</a>. This project is part of a presentation which teaches the fundamentals of reproducible research, using the free software <a href="http://www.r-project.org/">R</a>.</p>
@@ -458,10 +458,13 @@ hist(rnorm(10^4), breaks=&quot;FD&quot;)</code></pre>
 <pre class="r"><code>project.name &lt;- &quot;project-light&quot;
 project.dir &lt;- &quot;&quot;
 if(Sys.info()[&quot;user&quot;] == &quot;tflutre&quot;){
-  project.dir &lt;- &quot;~/src/tuto-reproducible-research/project-light&quot;
+  project.dir &lt;- paste0(&quot;~/src/tuto-reproducible-research/&quot;,
+                        project.name)
 } else if(Sys.info()[&quot;user&quot;] == &quot;&lt;collaborator1&gt;&quot;){
-  project.dir &lt;- &quot;C:/Documents/tuto-reproducible-research/project-light&quot;
+  project.dir &lt;- paste0(&quot;C:/Documents/tuto-reproducible-research/&quot;,
+                        project.name)
 }
+project.dir &lt;- path.expand(project.dir)
 stopifnot(file.exists(project.dir))
 data.dir &lt;- paste0(project.dir, &quot;/data&quot;)
 stopifnot(file.exists(data.dir))
@@ -475,8 +478,8 @@ stopifnot(file.exists(src.dir))
 </div>
 <div id="load-or-simulate-some-data" class="section level1">
 <h1><span class="header-section-number">3</span> Load (or simulate) some data</h1>
-<p>Before loading a file, it is useful to check that its content didn’t change using the MD5 digest algorithm:</p>
-<pre class="r"><code>dat.file &lt;- &quot;/path/to/data.tsv&quot;
+<p>Before loading a file, it is useful to check that its content didn’t change using the <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> digest algorithm:</p>
+<pre class="r"><code>dat.file &lt;- file.path(data.dir, &quot;data.tsv&quot;)
 stopifnot(tools::md5sum(dat.file) == &quot;baaf3c3eb892c5e4c42327eee462b35e&quot;) # fake example
 dat &lt;- read.table(dat.file, header=TRUE, sep=&quot;\t&quot;)</code></pre>
 </div>
@@ -495,8 +498,8 @@ dat &lt;- read.table(dat.file, header=TRUE, sep=&quot;\t&quot;)</code></pre>
 <p>Use <code>lm()</code>, <code>lme4::lmer()</code>, etc.</p>
 <p>…</p>
 </div>
-<div id="check-assumptions-and-improve-the-model" class="section level1">
-<h1><span class="header-section-number">7</span> Check assumptions and improve the model</h1>
+<div id="check-assumptions" class="section level1">
+<h1><span class="header-section-number">7</span> Check assumptions</h1>
 <p>Look at residuals, etc.</p>
 <p>…</p>
 </div>
@@ -504,7 +507,7 @@ dat &lt;- read.table(dat.file, header=TRUE, sep=&quot;\t&quot;)</code></pre>
 <h1><span class="header-section-number">8</span> Appendix</h1>
 <pre class="r"><code>t1 &lt;- proc.time(); t1 - t0</code></pre>
 <pre><code>##    user  system elapsed 
-##   0.019   0.000   0.018</code></pre>
+##   0.010   0.000   0.011</code></pre>
 <pre class="r"><code>print(sessionInfo(), locale=FALSE)</code></pre>
 <pre><code>## R version 3.5.3 (2019-03-11)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
