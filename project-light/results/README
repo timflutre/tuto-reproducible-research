@@ -1,1 +1,3 @@
 Save your results (intermediary and final) in this directory.
+Version only the scripts (e.g., Rmd files) as the output data files
+can be re-generated from the input data files and the scripts.
