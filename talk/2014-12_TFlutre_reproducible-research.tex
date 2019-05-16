@@ -84,7 +84,7 @@
 \title[Reproducible research]{Caring about reproducibility in scientific research}
 \author[T. Flutre]{Timoth\'{e}e Flutre}
 \institute[INRA]{INRA, UMR AGAP}
-\date{08/12/2014}
+\date{08/12/2014*}
 
 \begin{document}
 
@@ -93,7 +93,7 @@
   
   \tiny
   \begin{center}
-    Last updated: 14/11/2016
+    * Last updated: 16/05/2019
     
     \medskip
     
@@ -329,7 +329,7 @@
     \end{itemize}
     \medskip
     \pause
-  \item \alert{data}: few small files or many large files; custom or standardized formats; databases
+  \item \alert{data}: few small files or many large files; text or binary; custom or standardized formats; databases
     \medskip
     \pause
   \item \alert{code}: in interpreted languages (e.g. R, Python, Perl, Bash) or compiled languages (e.g. C, C++, Fortran)
@@ -368,7 +368,7 @@
   \frametitle{A text editor, not a word processor}
   \begin{itemize}
   \item word processors: \href{https://www.libreoffice.org/discover/writer/}{LibreOffice Writer}, Microsoft Word, etc
-  \item text editors: \href{https://www.gnu.org/software/emacs/}{Emacs}, Vim, \href{https://notepad-plus-plus.org/}{Notepad}++, \href{https://wiki.gnome.org/Apps/Gedit}{Gedit}, \href{http://www.geany.org/}{Geany}, etc
+  \item text editors: \href{https://www.gnu.org/software/emacs/}{Emacs}, \href{https://www.vim.org/}{Vim}, \href{https://notepad-plus-plus.org/}{Notepad}++, \href{https://wiki.gnome.org/Apps/Gedit}{Gedit}, \href{http://www.geany.org/}{Geany}, etc
   \end{itemize}
   
   \bigskip
@@ -376,7 +376,7 @@
   
   Why \alert{knowing/mastering a good text editor is crucial}?
   \begin{itemize}
-  \item essential tool of any data analysis, e.g. scripts
+  \item essential tool of any data analysis (source code and scripts)
   \item light-weight markup languages convert plain text to PDF/HTML/odt/docx/etc, check out \href{http://pandoc.org/}{pandoc}
   \item delivers full power of \href{http://www.ibm.com/developerworks/aix/library/au-unixtext/index.html}{text manipulation tools}, e.g. \verb+diff+ to compare, \verb+grep+ to search, \verb+awk+ to extract, ...
   \item allows efficient use of version control systems such as \href{http://www.git-scm.com/}{git}
@@ -445,7 +445,7 @@
   \bigskip
   \pause
   
-  Check that the test passes; until then, fix the implementation.:
+  Check that the test passes; until then, fix the implementation:
   \begin{lstlisting}
     observed <- setTwoToZero(input)
     library(testthat)
@@ -468,20 +468,20 @@
   
   \bigskip
   
-  Then, version it with git, host it on GitHub, and use the R package \href{https://cran.r-project.org/package=devtools}{devtools} to install it easily on any computer.
+  Then, version it with git, host it somewhere (e.g. \href{https://github.com/}{GitHub}, \href{https://www.renater.fr/fr/SourceSup}{SourceSup}), and use the R package \href{https://cran.r-project.org/package=devtools}{devtools} to install it easily on any computer.
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Two examples}
   \begin{enumerate}
-  \item \alert{project "ligth"}: a few small data files; laptop; classical models; available implementations for interpreted languages
+  \item \alert{project "ligth"}: a few small data files (plain text); laptop; classical models; available implementations for interpreted languages
     \begin{itemize}
     \item ok to re-run the whole analysis from time to time
     \item write notebook in text file in \href{http://cran.r-project.org/web/packages/rmarkdown/index.html}{Rmd} format and use \href{http://www.rstudio.com/products/rstudio/download/}{RStudio}
     \end{itemize}
     \bigskip
     \pause
-  \item \alert{project "heavy"}: many large files, e.g. sequencing data; cluster; possibly new models and implementations
+  \item \alert{project "heavy"}: many large files (binary format); cluster; possibly new models and implementations
     \begin{itemize}
     \item can't re-run the whole analysis because of intensive computations
     \item write notebook in text file in \href{http://orgmode.org/}{org} format and use \href{https://www.gnu.org/software/emacs/}{Emacs} or \href{http://johnmacfarlane.net/pandoc/}{pandoc}
