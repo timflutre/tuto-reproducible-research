@@ -13,7 +13,7 @@
 \usepackage{bm} % to have mathematical symbols in bold
 \usepackage{multirow}
 \usepackage{tikz}
-\usepackage[francais]{babel}
+% \usepackage[francais]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \lstset{ 
@@ -83,7 +83,7 @@
 
 \title[Reproducible research]{Caring about reproducibility in scientific research}
 \author[T. Flutre]{Timoth\'{e}e Flutre}
-\institute[INRA]{INRA, UMR AGAP}
+\institute[INRA]{INRA, UMR AGAP (now UMR GQE)}
 \date{08/12/2014*}
 
 \begin{document}
@@ -93,7 +93,7 @@
   
   \tiny
   \begin{center}
-    * Last updated: 16/05/2019
+    * Last updated: 20/06/2019
     
     \medskip
     
@@ -224,7 +224,7 @@
 
 \begin{frame}
   \frametitle{Let us start with code...}
-  Claerbout \& Karrenbach (1992):
+  \href{https://doi.org/10.1190/1.1822162}{Claerbout \& Karrenbach (1992)}:
   \begin{quote}
     An article about a computational result is advertising, not scholarship. The actual scholarship is the full software environment, code and data, that produced the result.
   \end{quote}
@@ -232,7 +232,7 @@
   \bigskip
   \pause
   
-  Buckheit \& Donohoe (1995):
+  \href{https://doi.org/10.1007/978-1-4612-2544-7_5}{Buckheit \& Donohoe (1995)}:
   \begin{quote}
     Publishing figures or results without the complete software environment could be compared to a mathematician publishing an announcement of a mathematical theorem without giving the proof.
   \end{quote}
@@ -338,7 +338,7 @@
   \item \alert{model}: informal (any word processor is enough, e.g. Writer, Word) or formal (many equations, much easier in LaTeX)
     \medskip
     \pause
-  \item \alert{collaborators}: professional scientist or anyone else; beginner or experienced; "open curious" or already fully proficient
+  \item \alert{collaborators}: professional scientist or anyone else; beginner or experienced; "open curious" or already fully proficient (N.B.: to specify author contributions, take a look at \href{https://www.casrai.org/credit.html}{CRediT})
   \end{itemize}
 \end{frame}
 
@@ -361,7 +361,7 @@
   \bigskip
   \pause
   
-  See also: \url{http://software-carpentry.org/}
+  See also: \href{http://software-carpentry.org/}{Software Carpentry} and \href{https://www.fun-mooc.fr/courses/course-v1:inria+41016+session01bis/about}{MOOC RR}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -462,13 +462,13 @@
   
   \begin{itemize}
   \item use \texttt{package.skeleton()}
-  \item or use the \href{https://cran.r-project.org/package=pkgKitten}{kitten} package
+  \item or use the \href{https://cran.r-project.org/package=pkgKitten}{pkgKitten} package
   \item or read H. Wickham's great book (freely available \href{http://r-pkgs.had.co.nz/}{online})
   \end{itemize}
   
   \bigskip
   
-  Then, version it with git, host it somewhere (e.g. \href{https://github.com/}{GitHub}, \href{https://www.renater.fr/fr/SourceSup}{SourceSup}), and use the R package \href{https://cran.r-project.org/package=devtools}{devtools} to install it easily on any computer.
+  Then, version it with git, host it somewhere (e.g., locally with \href{https://about.gitlab.com/}{GitLab}, online with \href{https://www.renater.fr/fr/SourceSup}{SourceSup}, GitHub, etc), and use the R package \href{https://cran.r-project.org/package=devtools}{devtools} to install it easily on any computer.
 \end{frame}
 
 \begin{frame}[fragile]
