@@ -82,7 +82,7 @@ knitr::kable(mtcars[1:5,])
 
 # Overview
 
-This document is part of [project "light"](https://github.com/timflutre/tuto-reproducible-research).
+This document is part of the ["light"](https://github.com/timflutre/tuto-reproducible-research) project.
 This project is part of a presentation which teaches the fundamentals of reproducible research.
 
 The project directory is organized as advised by Noble [(PLoS Computational Biology, 2009)](http://dx.doi.org/10.1371/journal.pcbi.1000424).
@@ -109,19 +109,21 @@ Importantly, before anything else, one must specify all paths relatively to the 
 project.name <- "project-light"
 project.dir <- ""
 if(Sys.info()["user"] == "tflutre"){
-  project.dir <- paste0("~/src/tuto-reproducible-research/",
-                        project.name)
+  project.dir <- file.path("~/src/tuto-reproducible-research",
+                           project.name)
 } else if(Sys.info()["user"] == "<collaborator1>"){
-  project.dir <- paste0("C:/Documents/tuto-reproducible-research/",
-                        project.name)
+  project.dir <- file.path("C:/Documents/tuto-reproducible-research",
+                           project.name)
 }
 project.dir <- path.expand(project.dir)
-stopifnot(file.exists(project.dir))
-data.dir <- paste0(project.dir, "/data")
-stopifnot(file.exists(data.dir))
-src.dir <- paste0(project.dir, "/src")
-stopifnot(file.exists(src.dir))
-## source(paste0(src.dir, "/utils_project-light.R"))
+stopifnot(dir.exists(project.dir))
+data.dir <- file.path(project.dir, "data")
+stopifnot(dir.exists(data.dir))
+results.dir <- file.path(project.dir, "results")
+stopifnot(dir.exists(results.dir))
+src.dir <- file.path(project.dir, "src")
+stopifnot(dir.exists(src.dir))
+## source(file.path(src.dir, "utils_project-light.R"))
 ```
 
 This document will also require external packages to be available, for instance:
