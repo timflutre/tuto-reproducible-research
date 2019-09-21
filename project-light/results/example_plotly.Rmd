@@ -1,0 +1,42 @@
+---
+title: "Example of R/plotly"
+author: "Timothée Flutre"
+date: "23/08/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load the package:
+```{r}
+if(! suppressPackageStartupMessages(require("plotly")))
+  install.packages("plotly")
+suppressPackageStartupMessages(library(plotly))
+```
+
+Simulate data:
+```{r}
+set.seed(1234)
+n <- 100
+x <- rnorm(n=n, mean=7, sd=3)
+mu <- 13
+beta <- 2
+epsilon <- rnorm(n=n, mean=0, sd=4)
+y <- mu + beta * x + epsilon
+```
+
+Make a classical scatter plot (non-interactive):
+```{r}
+plot(x=x, y=y, las=1, main="Simulated data")
+```
+
+Make a "plotly" scatter plot (interactive):
+```{r}
+dat <- data.frame(x=x, y=y)
+p <- plot_ly(data=dat, x=~x, y=~y, type="scatter", mode="markers")
+p
+```
+
+Coordinates pop up when hovering a point with the mouse, and any arbitrary text can be added ([example](https://plot.ly/r/text-and-annotations/#adding-informations-to-default-hover-text)).
