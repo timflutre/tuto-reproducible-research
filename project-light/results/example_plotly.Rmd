@@ -1,22 +1,33 @@
 ---
-title: "Example of R/plotly"
+title: "Example of R/plotly and R/ggplot2"
 author: "Timothée Flutre"
 date: "23/08/2019"
-output: html_document
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: TRUE
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Load the package:
+# Load the packages
+
 ```{r}
 if(! suppressPackageStartupMessages(require("plotly")))
   install.packages("plotly")
 suppressPackageStartupMessages(library(plotly))
+if(! suppressPackageStartupMessages(require("ggplot2")))
+  install.packages("ggplot2")
+suppressPackageStartupMessages(library(ggplot2))
 ```
 
-Simulate data:
+# Example with `plotly`
+
+## Simulate data
+
 ```{r}
 set.seed(1234)
 n <- 100
@@ -27,12 +38,16 @@ epsilon <- rnorm(n=n, mean=0, sd=4)
 y <- mu + beta * x + epsilon
 ```
 
-Make a classical scatter plot (non-interactive):
+## Make a classical scatter plot
+
+Non-interactive:
 ```{r}
 plot(x=x, y=y, las=1, main="Simulated data")
 ```
 
-Make a "plotly" scatter plot (interactive):
+## Make a `plotly` scatter plot
+
+Interactive:
 ```{r}
 dat <- data.frame(x=x, y=y)
 p <- plot_ly(data=dat, x=~x, y=~y, type="scatter", mode="markers")
@@ -40,3 +55,59 @@ p
 ```
 
 Coordinates pop up when hovering a point with the mouse, and any arbitrary text can be added ([example](https://plot.ly/r/text-and-annotations/#adding-informations-to-default-hover-text)).
+
+
+# Example with `ggplot2` and `plotly`
+
+Sometimes it is very useful to use `ggplot2` as it implements a "grammar of graphics" ([Wickham, 2010](https://doi.org/10.1198/jcgs.2009.07098)).
+
+## Simulate data
+
+```{r}
+set.seed(1234)
+I <- 3
+J <- 10
+dat <- data.frame(id=rep(sprintf("ind%02i", 1:J), times=I),
+                  a=gl(n=I, k=J, labels=LETTERS[1:I]),
+                  y=NA)
+for(i in 1:I){
+  idx <- which(dat$a == levels(dat$a)[i])
+  dat$y[idx] <- rnorm(n=length(idx), mean=0+i, sd=1)
+}
+str(dat)
+```
+
+## Make a classical boxplot
+
+Non-interactive:
+```{r}
+boxplot(y ~ a, data=dat, las=1, main="Simulated data")
+```
+
+## Make a `plotly` violin plot
+
+Interactive:
+```{r}
+p <- plot_ly(data=dat, x=~a, y=~y, split=~a, type="violin")
+p
+```
+
+## Make a `ggplot2` plot
+
+```{r}
+p <- ggplot(dat, aes(x=a, y=y, color=a)) +
+  labs(title="Simulated data")
+p <- p + geom_jitter(position=position_jitter(0.05))
+p
+```
+
+## Make a `ggplot2 + plotly` plot
+
+Add a `text` argument to `aes`; it will be safely ignored by `ggplot` but used by `plotly`:
+```{r}
+p <- ggplot(dat, aes(x=a, y=y, color=a,
+                     text=id)) +
+  labs(title="Simulated data")
+p <- p + geom_jitter(position=position_jitter(0.05))
+ggplotly(p, tooltip="text")
+```
