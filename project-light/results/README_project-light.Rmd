@@ -24,11 +24,6 @@ abstract: |
 This R chunk is used to set up some options.
 -->
 ```{r setup, include=FALSE}
-R.v.maj <- as.numeric(R.version$major)
-R.v.min.1 <- as.numeric(strsplit(R.version$minor, "\\.")[[1]][1])
-if(R.v.maj < 2 || (R.v.maj == 2 && R.v.min.1 < 15))
-  stop("requires R >= 2.15", call.=FALSE)
-
 suppressPackageStartupMessages(library(knitr))
 if(! "params" %in% ls())
   params <- list(root.dir=NULL)
@@ -106,29 +101,29 @@ This project involves the following persons:
 
 Importantly, before anything else, one must specify all paths relatively to the root of the project:
 ```{r project_organization, eval=FALSE}
-project.name <- "project-light"
-project.dir <- ""
+projectName <- "project-light"
+projectDir <- ""
 if(Sys.info()["user"] == "tflutre"){
-  project.dir <- file.path("~/src/tuto-reproducible-research",
-                           project.name)
+  projectDir <- file.path("~/src/tuto-reproducible-research",
+                           projectName)
 } else if(Sys.info()["user"] == "<collaborator1>"){
-  project.dir <- file.path("C:/Documents/tuto-reproducible-research",
-                           project.name)
+  projectDir <- file.path("C:/Documents/tuto-reproducible-research",
+                           projectName)
 }
-project.dir <- path.expand(project.dir)
-stopifnot(dir.exists(project.dir))
-data.dir <- file.path(project.dir, "data")
-stopifnot(dir.exists(data.dir))
-results.dir <- file.path(project.dir, "results")
+projectDir <- path.expand(projectDir)
+stopifnot(dir.exists(projectDir))
+dataDir <- file.path(projectDir, "data")
+stopifnot(dir.exists(dataDir))
+results.dir <- file.path(projectDir, "results")
 stopifnot(dir.exists(results.dir))
-src.dir <- file.path(project.dir, "src")
-stopifnot(dir.exists(src.dir))
-## source(file.path(src.dir, "utils_project-light.R"))
+srcDir <- file.path(projectDir, "src")
+stopifnot(dir.exists(srcDir))
+## source(file.path(srcDir, paste0(projectName, "_utils.R")))
 ```
 
-This document will also require external packages to be available, for instance:
-```{r load_pkg}
-## suppressPackageStartupMessages(library(MASS))
+This document also requires external packages to be available:
+```{r load_pkg, eval=FALSE}
+suppressPackageStartupMessages(library(MASS))
 ```
 
 This R chunk is used to assess how much time it takes to execute the R code in this document until the end:
@@ -139,17 +134,17 @@ t0 <- proc.time()
 
 # Load (or simulate) some data
 
-Before loading a file, it is useful to check that its content didn't change using the [MD5](https://en.wikipedia.org/wiki/MD5) digest algorithm:
+Before loading a file, it is useful to check that its content did not change using the [MD5](https://en.wikipedia.org/wiki/MD5) digest algorithm:
 ```{r, eval=FALSE}
-dat.file <- file.path(data.dir, "data.tsv")
-stopifnot(tools::md5sum(dat.file) == "baaf3c3eb892c5e4c42327eee462b35e") # fake example
-dat <- read.table(dat.file, header=TRUE, sep="\t")
+inF <- file.path(dataDir, "data.tsv")
+stopifnot(tools::md5sum(inF) == "baaf3c3eb892c5e4c42327eee462b35e") # fake example
+dat <- read.table(inF, header=TRUE, sep="\t")
 ```
 
 
 # Explore the data
 
-Use `plot()`, `hist()`, `boxplot()` (better, `beanplot()`), `barplot`, etc.
+Use `plot()`, `hist()`, `boxplot()` (better, `beanplot()`), `barplot`, etc, or `ggplot2` and `plotly`.
 
 ...
 
