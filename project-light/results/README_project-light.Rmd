@@ -25,10 +25,10 @@ This R chunk is used to set up some options.
 -->
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages(library(knitr))
-if(! "params" %in% ls())
-  params <- list(root.dir=NULL)
+if(! "paramsKnitr" %in% ls())
+  paramsKnitr <- list(root.dir=NULL)
 opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE,
-               fig.align="center", root.dir=params$root.dir)
+               fig.align="center", root.dir=paramsKnitr$root.dir)
 opts_knit$set(progress=TRUE, verbose=TRUE)
 ```
 
@@ -93,14 +93,8 @@ cd ..; tar -czvf project-light.tar.gz \
 --exclude="*~" --exclude=".*" project-light
 ```
 
-This project involves the following persons:
-
-* Firstname Lastname (specify contributions following R [guidelines](http://journal.r-project.org/archive/2012-1/RJournal_2012-1_Hornik~et~al.pdf))
-
-* ...
-
-Importantly, before anything else, one must specify all paths relatively to the root of the project:
-```{r project_organization, eval=FALSE}
+Paths:
+```{r, eval=FALSE}
 projectName <- "project-light"
 projectDir <- ""
 if(Sys.info()["user"] == "tflutre"){
@@ -121,12 +115,12 @@ stopifnot(dir.exists(srcDir))
 ## source(file.path(srcDir, paste0(projectName, "_utils.R")))
 ```
 
-This document also requires external packages to be available:
-```{r load_pkg, eval=FALSE}
+Dependencies:
+```{r, eval=FALSE}
 suppressPackageStartupMessages(library(MASS))
 ```
 
-This R chunk is used to assess how much time it takes to execute the R code in this document until the end:
+Execution time (see the appendix):
 ```{r time_0}
 t0 <- proc.time()
 ```
