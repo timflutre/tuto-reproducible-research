@@ -25,8 +25,16 @@ This R chunk is used to set up some options.
 -->
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages(library(knitr))
-if(! "paramsKnitr" %in% ls())
-  paramsKnitr <- list(root.dir=NULL)
+## retrieve the parameters passed via `rmarkdown::render()`
+## (especially handy when used with my own script `rmd2out.R`)
+## and rename them into `paramsKnitr` to avoid name conflicts
+if(! "paramsKnitr" %in% ls()){
+  if("params" %in% ls()){
+    paramsKnitr <- params
+    rm(params)
+  } else
+    paramsKnitr <- list(root.dir=NULL)
+}
 opts_chunk$set(echo=TRUE, warning=TRUE, message=TRUE, cache=FALSE,
                fig.align="center", root.dir=paramsKnitr$root.dir)
 opts_knit$set(progress=TRUE, verbose=TRUE)
