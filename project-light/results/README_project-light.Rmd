@@ -7,7 +7,7 @@ colorlinks: true
 output:
   html_document:
     toc: true
-    toc_depth: 3
+    toc_depth: 5
     toc_float: true
     number_sections: TRUE
     code_folding: show
@@ -26,7 +26,8 @@ This R chunk is used to set up some options.
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages(library(knitr))
 ## retrieve the parameters passed via `rmarkdown::render()`
-## (especially handy when used with my own script `rmd2out.R`)
+## (especially handy when used with my own script `rmd2out.R`
+## available here: https://github.com/timflutre/quantgen)
 ## and rename them into `paramsKnitr` to avoid name conflicts
 if(! "paramsKnitr" %in% ls()){
   if("params" %in% ls()){
@@ -41,7 +42,7 @@ opts_knit$set(progress=TRUE, verbose=TRUE)
 ```
 
 
-# Preamble
+# Meta
 
 This document was generated from a text file in the Rmd format, especially useful with the free software [R](http://www.r-project.org/) (use a recent-enough version).
 
@@ -83,7 +84,7 @@ knitr::kable(mtcars[1:5,])
 ```
 
 
-# Overview
+# Preamble
 
 This document is part of the ["light"](https://github.com/timflutre/tuto-reproducible-research) project.
 This project is part of a presentation which teaches the fundamentals of reproducible research.
